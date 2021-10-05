@@ -80,7 +80,59 @@ end
 
 inject_number(number)
 
-p (1..100).step(5)
+p 'Ruby'.chars
+p 'Ruby Java Perl'.split(' ')
 
 
 
+a = [1,2,3,4,5]
+b = [1,2,3,4]
+# 和集合
+p a | b
+# 差集合
+p a - b
+# 席集合
+p a & b
+
+# 添字をつける
+number.each_with_index {|number, i| puts "#{i}: #{number}"}
+# １から始める場合は引数を与える
+number.each.with_index(1) {|number, i| puts "#{i}: #{number}"}
+
+# each以外にも添字をつけることができる
+a = number.map.with_index(1) {|number, i| "#{i}: #{number}"}
+p a
+
+# 配列に配列が入った値を変数に格納する
+dimension = [[10,20],[30,40],[50,60]]
+dimension.each.with_index(1) {|(length, width), i| p "length: #{length}, width: #{width}, i: #{i}"}
+
+names = ["田中","斉藤","鈴木"]
+a = names.map { |name| "#{name}さん"}.join("と")
+puts a
+
+text = <<TEXT
+  03-9999-9999
+TEXT
+
+p text.scan /\d\d-\d\d\d\d-\d\d\d\d/
+
+html = <<-HTML
+<select name="game_console">
+<option value="none"></option>
+<option value="wii_u" selected>Wii U</option>
+<option value="ps4">プレステ4</option>
+<option value="gb">ゲームボーイ</option>
+</select>
+HTML
+
+replaced = html.gsub(/<option value="(\w+)"(?: selected)?>(.*?)<\/option>/, '\1,\2')
+puts replaced
+
+
+p "123-4567" =~ /\d{3}-\d{4}/
+
+text = "私の誕生日は1995年12月04日です"
+a = text.match(/(?<year>\d+)年(\d+)月(\d+)日/)
+puts a[0]
+puts a[:year]
