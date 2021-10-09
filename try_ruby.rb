@@ -107,9 +107,6 @@ p a
 dimension = [[10,20],[30,40],[50,60]]
 dimension.each.with_index(1) {|(length, width), i| p "length: #{length}, width: #{width}, i: #{i}"}
 
-names = ["田中","斉藤","鈴木"]
-a = names.map { |name| "#{name}さん"}.join("と")
-puts a
 
 text = <<TEXT
   03-9999-9999
@@ -136,3 +133,5 @@ text = "私の誕生日は1995年12月04日です"
 a = text.match(/(?<year>\d+)年(\d+)月(\d+)日/)
 puts a[0]
 puts a[:year]
+
+puts 1.class
